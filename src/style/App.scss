@@ -1,0 +1,19 @@
+@import "Header";
+@import "Home";
+@import "Tiles";
+
+.content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.page {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  // padding: calc(62px + 3rem) 3rem 3rem;
+  background-color: #292929
+}

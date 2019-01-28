@@ -1,0 +1,22 @@
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 62px;
+    padding: 62px 3rem;
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+  }
+  
+  .top-bar-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .top-bar a {
+    color: white;
+    margin-right: 18px;
+    text-decoration: none;
+  }

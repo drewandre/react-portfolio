@@ -9,11 +9,12 @@ import {
 import Home from "./Home"
 import Lighting from "./Lighting"
 import Contact from "./Contact"
-import './App.scss'
+import './style/App.scss'
 
 import Signature from './assets/Signature.png'
-import Cloud from './assets/Cloud.jpg'
 import Overlay from './assets/Overlay.png'
+import Store from './Store'
+import Software from './Software'
 
 
 const InstagramIcon = props => (
@@ -94,6 +95,7 @@ class App extends Component {
               <div className="top-bar-right">
                 <Link to={{ pathname: "/lighting", state: { from: window.location.pathname } }}>Lighting</Link>
                 <Link to={{ pathname: "/software", state: { from: window.location.pathname } }}>Software</Link>
+                <Link to={{ pathname: "/store", state: { from: window.location.pathname } }}>Store</Link>
                 <Link to={{ pathname: "/contact", state: { from: window.location.pathname } }}>Contact</Link>
                 <a href='https://www.instagram.com/_drewandre' target='blank'>
                   <InstagramIcon />
@@ -123,6 +125,12 @@ class App extends Component {
                   <Route
                     path="/lighting"
                     component={Lighting} />
+                  <Route
+                    path="/software"
+                    component={Software} />
+                  <Route
+                    path="/store"
+                    component={Store} />
                   <Route
                     path="/contact"
                     component={Contact} />

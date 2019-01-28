@@ -37,7 +37,7 @@ const transitionStyles = {
     },
 }
 
-class Lighting extends Component {
+class Software extends Component {
     state = {
         show: false
     }
@@ -71,4 +71,4 @@ class Lighting extends Component {
     }
 }
 
-export default Lighting
+export default Software

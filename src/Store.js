@@ -20,7 +20,7 @@ const defaultStyle = {
     borderRadius: 5,
     borderColor: '#000',
     borderWidth: 5,
-    backgroundColor: 'rgba(255,255,255,0.2)',
+    backgroundColor: 'rgba(255,255,255,0.9)',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'
@@ -37,7 +37,7 @@ const transitionStyles = {
     },
 }
 
-class Lighting extends Component {
+class Store extends Component {
     state = {
         show: false
     }
@@ -71,4 +71,4 @@ class Lighting extends Component {
     }
 }
 
-export default Lighting
+export default Store
