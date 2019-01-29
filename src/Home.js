@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import Cloud from './assets/Cloud.jpg'
 import InSound from './assets/InSound.jpg'
-import Overlay from './assets/Overlay.png'
+// import Overlay from './assets/Overlay.png'
 
 import CrossfadeImage from 'react-crossfade-image'
 
@@ -24,7 +24,7 @@ const NextArrow = props => (
 )
 
 const PrevArrow = props => (
-    <div className='arrow-touch-container left' onClick={e => e.stopPropagation()}>
+    <div className='arrow-touch-container left'>
         <svg
             onClick={props.onClick}
             width="50px"
@@ -59,13 +59,22 @@ export class Home extends Component {
     }
 
     componentDidMount() {
+        this.setImageInterval()
         window.addEventListener('keydown', event => {
             if (event.key === 'ArrowRight') {
+                clearInterval(this.nextImageInterval)
+                this.setImageInterval()
                 this.nextImage()
             } else if (event.key === 'ArrowLeft') {
+                clearInterval(this.nextImageInterval)
+                this.setImageInterval()
                 this.prevImage()
             }
         })
+    }
+
+    setImageInterval = () => {
+        this.nextImageInterval = window.setInterval(this.nextImage, 3000)
     }
 
     prevImage = () => {
@@ -99,6 +108,7 @@ export class Home extends Component {
                         {/* <source media="(min-width: 800px)" srcset="elva-800w.jpg" /> */}
                         <CrossfadeImage
                             className="home-page-photo"
+                            alt={IMAGE_META[this.state.slideshowIndex].description}
                             src={IMAGE_META[this.state.slideshowIndex].source}
                             style={{
                                 objectFit: 'cover',

@@ -1,26 +1,32 @@
 
 .tiles {
+    overflow: scroll;
+
+    // ========= GRID ========= //
     display: grid;
-    // position: absolute;
-    // top: calc(62px + 3rem);
-    // left: 0;
-    // right: 0;
-    // bottom: 0;
     padding: calc(62px + 3rem) 3rem 3rem;
     grid-template-rows: auto auto 1fr 1fr;
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
     grid-gap: 3rem;
     flex-grow: 1;
+
+    // ========= FLEX BOX ========= //
+    // position: absolute;
+    // top: calc(62px + 3rem);
+    // left: 0;
+    // right: 0;
+    // bottom: 0;
+
     // display: flex;
     // justify-content: space-evenly;
     // flex-direction: row;
     // flex-wrap: wrap;
-    overflow: scroll;
 }
 
 .tile {
-    transition: opacity 400ms ease-in-out, transform 400ms ease-in;
+    transition: opacity 400ms ease-in, transform 400ms ease-in-out, filter 200ms ease-in;
     width: 100%;
+    max-width: 500px;
     height: 300px;
     margin: 20px auto;
     border-radius: 5px;
@@ -32,7 +38,7 @@
     align-items: center;
     cursor: pointer;
     filter: grayscale(70%);
-    transition: filter 200ms ease-in;
+
     overflow: hidden;
     box-shadow: 3px 5px 20px rgba(0,0,0,0.1);
 

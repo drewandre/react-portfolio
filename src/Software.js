@@ -49,7 +49,8 @@ class Software extends Component {
     render() {
         return (
             <div className="page">
-                {items.map(({ id, text }, index) => (
+                <h1>Software</h1>
+                {/* {items.map(({ id, text }, index) => (
                     <Transition
                         in={this.state.show}
                         key={id}
@@ -65,7 +66,7 @@ class Software extends Component {
                         )}
                     </Transition>
                 ))
-                }
+                } */}
             </div>
         )
     }

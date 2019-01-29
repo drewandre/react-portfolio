@@ -12,7 +12,7 @@ import Contact from "./Contact"
 import './style/App.scss'
 
 import Signature from './assets/Signature.png'
-import Overlay from './assets/Overlay.png'
+// import Overlay from './assets/Overlay.png'
 import Store from './Store'
 import Software from './Software'
 
@@ -80,17 +80,9 @@ class App extends Component {
         return (
           <div className="app">
             {/* <img className="home-page-overlay" src={Overlay} /> */}
-            {/* <div className='home-page-photo-container'> */}
-            {/* <picture> */}
-            {/* <source media="(max-width: 799px)" srcset="elva-480w.jpg" /> */}
-            {/* <source media="(min-width: 800px)" srcset="elva-800w.jpg" /> */}
-            {/* <img className="home-page-photo" src={Cloud} /> */}
-            {/* </picture> */}
-            {/* <CrossfadeImage src={IMAGE_SOURCES[this.state.slideshowIndex]} /> */}
-            {/* </div> */}
             <div className="top-bar">
               <Link to={{ pathname: "/", state: { from: window.location.pathname } }}>
-                <img src={Signature} />
+                <img src={Signature} alt='Drew André signature' />
               </Link>
               <div className="top-bar-right">
                 <Link to={{ pathname: "/lighting", state: { from: window.location.pathname } }}>Lighting</Link>

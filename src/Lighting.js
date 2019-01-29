@@ -38,23 +38,24 @@ class Lighting extends Component {
     render() {
         return (
             <div className="page">
-                <div className='tiles'>
+                <h1>Lighting</h1>
+                {/* <div className='tiles'>
                     {items.map(({ id, text, source }, index) => (
                         <Transition
                             in={this.state.show}
                             key={id}
-                            timeout={duration * (index / 5)}
+                            timeout={300 + duration * (index / 5)}
                             unmountOnExit>
                             {state => (
                                 <div className='tile' style={transitionStyles[state]}>
-                                    <img className='tile-image' src={source} />
+                                    <img className='tile-image' src={source} alt={text} />
                                     <h4>{text}</h4>
                                 </div>
                             )}
                         </Transition>
                     ))
                     }
-                </div>
+                </div> */}
             </div>
         )
     }

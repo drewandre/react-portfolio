@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #191919;
+    background-color: #111;
     z-index: 1;
     position: absolute;
     bottom: 0;
@@ -61,6 +61,7 @@
     width: 50%;
     height: 100%;
     cursor: pointer;
+    z-index: 1;
     
     &:hover > * {
       transition: opacity 400ms;
@@ -78,11 +79,15 @@
     height: 3rem;
     padding: 15px;
     z-index: 999;
-    background-color: #292929;
+    background-color: #111;
     transition: background-color 200ms, opacity 400ms;
   
     &:hover {
-      background-color: #202020;
+      background-color: #090909;
+    }
+
+    &:active {
+      background-color: #020202;
     }
   }
   
