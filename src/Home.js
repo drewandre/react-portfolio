@@ -4,7 +4,7 @@ import Cloud from './assets/Cloud.jpg'
 import InSound from './assets/InSound.jpg'
 import Overlay from './assets/Overlay.png'
 
-// import CrossfadeImage from 'react-crossfade-image'
+import CrossfadeImage from 'react-crossfade-image'
 
 const NextArrow = props => (
     <div className='arrow-touch-container right'>
@@ -40,7 +40,18 @@ const PrevArrow = props => (
     </div>
 )
 
-const IMAGE_SOURCES = [InSound, Cloud]
+const IMAGE_META = [
+    {
+        source: InSound,
+        description: "INSOUND, 2018 - ILLUMINUS FESTIVAL, BOSTON, MASSACHUSETTS"
+    },
+    {
+        source: Cloud,
+        description: "LARRY'S FLIGHT, 2018 - AERONAUT BREWERY, BOSTON, MASSACHUSETTS"
+    },
+]
+
+const NUMBER_OF_IMAGES = IMAGE_META.length
 
 export class Home extends Component {
     state = {
@@ -57,15 +68,20 @@ export class Home extends Component {
         })
     }
 
-    componentWillUnmount() {
-    }
-
     prevImage = () => {
-        this.setState(state => ({ slideshowIndex: state.slideshowIndex - 1 }))
+        this.setState(state => {
+            let nextIndex = state.slideshowIndex - 1
+            if (nextIndex < 0) nextIndex = NUMBER_OF_IMAGES - 1
+            return { slideshowIndex: nextIndex }
+        })
     }
 
     nextImage = () => {
-        this.setState(state => ({ slideshowIndex: state.slideshowIndex + 1 }))
+        this.setState(state => {
+            let nextIndex = state.slideshowIndex + 1
+            if (nextIndex > NUMBER_OF_IMAGES - 1) nextIndex = 0
+            return { slideshowIndex: nextIndex }
+        })
     }
 
     render() {
@@ -73,7 +89,7 @@ export class Home extends Component {
             <div className='home-view-container'>
                 {/* <img className="home-page-overlay" src={Overlay} /> */}
                 <div className='home-page-meta-container'>
-                    <p className='home-page-meta-text'>LARRY'S FLIGHT, 2018 - AERONAUT BREWERY, BOSTON, MASSACHUSETTS</p>
+                    <p className='home-page-meta-text'>{IMAGE_META[this.state.slideshowIndex].description}</p>
                 </div>
                 <div className='home-page-photo-container'>
                     <NextArrow onClick={this.nextImage} />
@@ -81,9 +97,16 @@ export class Home extends Component {
                     <picture>
                         {/* <source media="(max-width: 799px)" srcset="elva-480w.jpg" /> */}
                         {/* <source media="(min-width: 800px)" srcset="elva-800w.jpg" /> */}
-                        <img className="home-page-photo" onClick={() => alert('clicked!')} src={IMAGE_SOURCES[this.state.slideshowIndex]} />
+                        <CrossfadeImage
+                            className="home-page-photo"
+                            src={IMAGE_META[this.state.slideshowIndex].source}
+                            style={{
+                                objectFit: 'cover',
+                                width: '100%',
+                                height: '100vh'
+                            }}
+                        />
                     </picture>
-                    {/* <CrossfadeImage src={IMAGE_SOURCES[this.state.slideshowIndex]} /> */}
                 </div>
             </div>
         )
